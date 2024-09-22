@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"/>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png"/>
+  <meta name="description" content="This is my first desing page in html"/>
+  <link rel="stylesheet" href="./styles/style.css">
+  
+  <title>Frontend Mentor | Contact form</title>
+</head>
+<body>
+  <main>
+    <div class="contenedor">
+      <h1 class="contactH1"><strong>Contact Us</strong></h1>
+      <form action="#" method="get" class="formulario">
+        <div class="firstName">
+          <label for="firstN"> First Name <span class="verde">*</span></label><br>
+          <input id="firstN" class="firstName" type="text" required/>
+          <!-- This field is required -->
+        </div>
+
+        <div class="lastName">
+          <label for="lastN"> Last Name <span class="verde">*</span></label><br>
+          <input  id="lastN" class="lastName" type="text" required/>
+          <!-- This field is required -->
+        </div>
+
+        <div class="email">
+          <label for="emailA"> Email Address <span class="verde">*</span></label><br>
+          <input id="emailA" class="email" type="email" required/>
+          <!-- Please   enter a valid email address This field is required-->
+        </div>
+        
+        <div class="queryType">
+          <label class="labelQT" for="emailA"> Query Type <span class="verde">*</span></label>
+          <div class="radioQuery1">
+            <input type="radio" name="queryT" id="generalEnquiry1" class="query1"/>
+            <label for="generalEnquiry" class="spanQuery1"> General Enquiry</label> 
+          </div>
+          <div class="radioQuery2"> 
+            <input type="radio" name="queryT" id="generalEnquiry2" class="query2"/>
+            <label for="generalEnquiry" class="spanQuery2"> Support Request</label> 
+          </div>
+        </div>
+        
+        <div class="message">
+          <label for="message" class="messageLabel"> Message <span class="verde">*</span></label><br>
+          <textarea name="message" id="message" class="textarea" required/></textarea>
+          <!-- This field is required -->
+        </div>
+        
+        <div class="consent">
+          <input type="checkbox" name="consent" id="consent" class="consentCheckbox" value="consent"/>
+          <span class="consentSpan">I hereby consent to being contacted by the team  <span class="verde">*</span></span>
+        </div>
+        <button  class="button" type="submit">Submit</button>
+        <!-- Please select a query type -->
+      </form>
+    </div>
+  </main>
+<!-- Message Sent!
+  Thanks for completing the form. We'll be in touch soon! -->
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Enelis Blanca Cuba Rondón</a>.
+  </div>
+
+  <div class="sendCorrect">
+    
+  </div>
+</body>
+</html>

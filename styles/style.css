@@ -1,0 +1,243 @@
+ /****************RESTART ALL CSS *********************************/
+ /* ***************************************************************/
+    *{
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+
+    ul,li,ol{
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+    }
+   /******************************************************************/
+    /****************** Incluir las fuentes **************************/
+    @font-face 
+    {
+        font-family: karla;
+        src: url("../assets/fonts/Karla-VariableFont_wght.ttf");
+    }
+    /* Establecer las fuentes */
+    a,div.attribution{
+        font-family: karla;
+        font-size: 0.4rem;
+    }
+    .contactH1{
+        font-size: 1.5rem;
+        color: hsl(187, 24%, 22%);
+    }
+    label, span, button{
+        font-family: karla;
+        font-size: 0.9rem;
+        color: hsl(187, 24%, 22%);  
+    }
+    .verde{
+        font-family: karla;
+        color: #04AA6D;
+    }
+   /*  /********************************************************************/
+    /*Configuraciones del fondo*/
+     body{
+        background-color: hsl(148, 38%, 91%);
+        font-family: karla;
+    }
+
+    .contenedor{
+        height: auto;
+        width: 90%;
+        border: 2px solid white;
+        border-radius: 15px;
+        background-color: white;
+        padding: 3%;
+        margin-top: 10%;
+        margin-left: 5%;
+    }
+    .formulario{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        grid-template-areas:"name" 
+                            "lastname" 
+                            "email" 
+                            "queryT" 
+                            "queryT" 
+                            "message" 
+                            "message"
+                            "message"
+                            "consent"
+                            "button";
+        padding-top: 1rem ;    
+        justify-items: stretch;
+    }
+    .queryType{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+    .consent{
+        display: grid;
+        grid-template-columns: 1fr 19fr;
+        justify-items: left;
+
+    }
+    input, textarea, .radioQuery1, .radioQuery2{
+        border-radius: 0.5rem;
+    } 
+    input.email, input.firstName, input.lastName, .radioQuery1, .radioQuery2{
+        height: 2.5rem;
+        width: 100%;
+        /* margin-left: 3%; */
+        margin-top: 1.8%;
+        margin-bottom: 5%;
+        border: 0.15vh solid hsl(187, 24%, 22%);
+    } 
+    textarea{
+        height: 10rem;
+        width: 100%;  
+        /* margin-left: 3%; */
+        margin-bottom: 5%;
+        margin-top: 3%;
+        resize: none;
+    }
+    .consentCheckbox{
+        height: 0.8rem;
+        margin-top: 0.3rem;
+        margin-right: 1rem;
+     }
+    .button{
+        margin-top: 0.8rem;
+        background-color: hsl(169, 82%, 27%);
+        color: white;
+        border-radius: 0.5rem;
+        height: 4.5rem;
+        width: 100%;
+        /* margin-left: 3%;  */  
+    }
+    .query1, .query2{
+       justify-content: start;
+       height: 1rem;
+       opacity: 50%;
+    }
+    .radioQuery1{
+        display: grid;
+        grid-template-columns: 20% 80%;
+        align-items: center;
+    }
+    .radioQuery2
+    {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        align-items: center;
+    }
+
+    .attribution{
+        padding: 2%;
+        font-size: 11px; 
+        text-align: center;
+    }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    button:hover{
+        color: white;
+        cursor: pointer;
+    }
+    input:hover, textarea:hover{
+        border-color: #04AA6D;
+        cursor: pointer;
+        border-style: solid;
+        transition: border-color 0.3s ease;
+    }
+
+    .firstName:focus{
+        border: 0.5rem solid  hsl(169, 82%, 27%);;
+    }
+
+    button:hover{
+        color: white;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+        background-color: #04AA6D;
+    }
+
+    /**********Ahora hacer la vista de computadora***************************
+    *************************************************************************/
+    @media(min-width: 400px){
+        .contenedor{
+           
+            height: auto;
+            width: 45%;
+            padding: 2rem;
+            margin-left: 28%; 
+            margin-top: 7%;  
+            border: 2px solid white;
+            border-radius: 0.6rem;
+        }
+        .formulario{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            grid-template-areas:"name lastname" 
+                                "email email" 
+                                "queryT queryT" 
+                                "message message"
+                                "consent consent"
+                                "button button";
+            padding-top: 1.5em ;   
+            justify-items: auto;
+            align-items: end;
+            
+        }
+         .firstName{
+            
+            grid-area: name;  
+            align-content: normal;
+        }
+        .lastName{
+            grid-area: lastname;
+            
+        }
+        .email{
+            grid-area: email;  
+        }
+        .queryType{
+            grid-area: queryT;
+        }
+        .message{
+            grid-area: message;
+        }
+        .consent{
+            grid-area: consent;
+        }
+        .button{
+            grid-area: button;
+        }
+       
+        .queryType{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 20%
+                                60%;
+            grid-template-areas:"label label "
+                                "query1 query2 ";
+            row-gap: 0.35rem;
+            column-gap: 0.6rem;
+        }
+        .labelQT{
+            grid-area: label;
+        }
+        input.email, input.firstName, input.lastName, .radioQuery1, .radioQuery2,.button{
+            height: 2rem;
+            width: 100%;
+        } 
+        .textarea{
+            height: 4rem;  
+        }
+        
+        .consentSpan{
+            font-size: 0.8rem;
+        }
+        
+    }
+     
