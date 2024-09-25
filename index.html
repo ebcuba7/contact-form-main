@@ -11,48 +11,48 @@
 </head>
 <body>
   <main>
-    <div class="contenedor">
+    <div class="container">
       <h1 class="contactH1"><strong>Contact Us</strong></h1>
-      <form action="#" method="get" class="formulario">
+      <form action="#" method="get" class="form">
         <div class="firstName">
-          <label for="firstN"> First Name <span class="verde">*</span></label><br>
+          <label for="firstN"> First Name <span class="pointGreen">*</span></label><br>
           <input id="firstN" class="firstName" type="text" required/>
           <!-- This field is required -->
         </div>
 
         <div class="lastName">
-          <label for="lastN"> Last Name <span class="verde">*</span></label><br>
+          <label for="lastN"> Last Name <span class="pointGreen">*</span></label><br>
           <input  id="lastN" class="lastName" type="text" required/>
           <!-- This field is required -->
         </div>
 
         <div class="email">
-          <label for="emailA"> Email Address <span class="verde">*</span></label><br>
+          <label for="emailA"> Email Address <span class="pointGreen">*</span></label><br>
           <input id="emailA" class="email" type="email" required/>
           <!-- Please   enter a valid email address This field is required-->
         </div>
         
         <div class="queryType">
-          <label class="labelQT" for="emailA"> Query Type <span class="verde">*</span></label>
+          <label class="labelQT" for="emailA"> Query Type <span class="pointGreen">*</span></label>
           <div class="radioQuery1">
             <input type="radio" name="queryT" id="generalEnquiry1" class="query1"/>
             <label for="generalEnquiry" class="spanQuery1"> General Enquiry</label> 
           </div>
           <div class="radioQuery2"> 
-            <input type="radio" name="queryT" id="generalEnquiry2" class="query2"/>
-            <label for="generalEnquiry" class="spanQuery2"> Support Request</label> 
+            <input type="radio" name="queryT" id="Support Request" class="query2"/>
+            <label for="Support Request" class="spanQuery2"> Support Request</label> 
           </div>
         </div>
         
         <div class="message">
-          <label for="message" class="messageLabel"> Message <span class="verde">*</span></label><br>
+          <label for="message" class="messageLabel"> Message <span class="pointGreen">*</span></label><br>
           <textarea name="message" id="message" class="textarea" required/></textarea>
           <!-- This field is required -->
         </div>
         
         <div class="consent">
           <input type="checkbox" name="consent" id="consent" class="consentCheckbox" value="consent"/>
-          <span class="consentSpan">I hereby consent to being contacted by the team  <span class="verde">*</span></span>
+          <span class="consentSpan">I hereby consent to being contacted by the team  <span class="pointGreen">*</span></span>
         </div>
         <button  class="button" type="submit">Submit</button>
         <!-- Please select a query type -->
