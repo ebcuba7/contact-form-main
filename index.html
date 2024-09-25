@@ -16,44 +16,48 @@
       <form action="#" method="get" class="form">
         <div class="firstName">
           <label for="firstN"> First Name <span class="pointGreen">*</span></label><br>
-          <input id="firstN" class="firstName" type="text" required/>
-          <!-- This field is required -->
+          <input id="firstN" class="firstName" type="text"/>
+          <p class="requiredFirstName" id="requiredFirstName">This field is required</p>
         </div>
 
         <div class="lastName">
           <label for="lastN"> Last Name <span class="pointGreen">*</span></label><br>
-          <input  id="lastN" class="lastName" type="text" required/>
-          <!-- This field is required -->
+          <input  id="lastN" class="lastName" type="text"/>
+          <p class="requiredLastName" id="requiredLastName">This field is required</p>
         </div>
 
         <div class="email">
           <label for="emailA"> Email Address <span class="pointGreen">*</span></label><br>
-          <input id="emailA" class="email" type="email" required/>
-          <!-- Please   enter a valid email address This field is required-->
+          <input id="emailA" class="email" type="email" />
+          <p class="requiredEmail" id="requiredEmail"> This field is required</p>
+          <p class="errorEmail" id="errorEmail"> Please enter a valid email address</p>
         </div>
         
         <div class="queryType">
           <label class="labelQT" for="emailA"> Query Type <span class="pointGreen">*</span></label>
           <div class="radioQuery1">
-            <input type="radio" name="queryT" id="generalEnquiry1" class="query1"/>
+            <input type="radio" name="queryT" id="generalEnquiry" class="query1"/>
             <label for="generalEnquiry" class="spanQuery1"> General Enquiry</label> 
           </div>
           <div class="radioQuery2"> 
-            <input type="radio" name="queryT" id="Support Request" class="query2"/>
+            <input type="radio" name="queryT" id="supportRequest" class="query2"/>
             <label for="Support Request" class="spanQuery2"> Support Request</label> 
           </div>
+          <p class="selectQueryType" id="selectQueryType">Please, select a query type</p>
         </div>
         
         <div class="message">
           <label for="message" class="messageLabel"> Message <span class="pointGreen">*</span></label><br>
-          <textarea name="message" id="message" class="textarea" required/></textarea>
-          <!-- This field is required -->
+          <textarea name="message" id="message" class="textarea" /></textarea>
+          <p class="requiredMessage" id="requiredMessage"> This field is required</p>
         </div>
         
         <div class="consent">
           <input type="checkbox" name="consent" id="consent" class="consentCheckbox" value="consent"/>
           <span class="consentSpan">I hereby consent to being contacted by the team  <span class="pointGreen">*</span></span>
+          <p class="requiredConsent" id="requiredConsent"> To submit this form, please consent to be contacted</p>
         </div>
+        
         <button  class="button" type="submit">Submit</button>
         <!-- Please select a query type -->
       </form>
@@ -67,8 +71,7 @@
     Coded by <a href="#">Enelis Blanca Cuba Rondón</a>.
   </div>
 
-  <div class="sendCorrect">
-    
-  </div>
+  <div class="sendCorrect"></div>
+<script src="./js/validations.js"> </script>
 </body>
 </html>

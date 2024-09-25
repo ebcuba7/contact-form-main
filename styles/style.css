@@ -13,7 +13,7 @@
         text-decoration: none;
     }
    /******************************************************************/
-    /****************** Incluir las fuentes **************************/
+    /****************** FONTS **************************/
     @font-face 
     {
         font-family: karla;
@@ -37,8 +37,15 @@
         font-family: karla;
         color: #04AA6D;
     }
+    p{
+        font-family: karla;
+        font-size: 0.9rem;
+        color: hsl(0, 66%, 54%);
+        /* display: none; */
+        visibility: hidden
+    }
    /*  /********************************************************************/
-    /*Configuraciones del fondo*/
+    /*BACKGROUND CONFIGURATIONs*/
      body{
         background-color: hsl(148, 38%, 91%);
         font-family: karla;
@@ -80,7 +87,17 @@
         display: grid;
         grid-template-columns: 1fr 19fr;
         justify-items: left;
-
+        grid-template-areas: "check  message"
+                             "error  error";
+    }
+    .consentCheckbox{
+         grid-area: check;
+    } 
+    .consentSpan{
+        grid-area: message;
+    }
+    .requiredConsent{
+        grid-area: error;
     }
     input, textarea, .radioQuery1, .radioQuery2{
         border-radius: 0.5rem;
@@ -150,7 +167,7 @@
     }
 
     .firstName:focus{
-        border: 0.5rem solid  hsl(169, 82%, 27%);;
+        border: 0.2rem solid  hsl(169, 82%, 27%);;
     }
 
     button:hover{
@@ -160,7 +177,7 @@
         background-color: #04AA6D;
     }
 
-    /********* Computer view ***************************
+    /********* COMPUTER VIEW ***************************
     *************************************************************************/
     @media(min-width: 400px){
         .container{
@@ -239,4 +256,91 @@
         }
         
     }
-     
+    /*******************************************************************************/
+    /* Estilo para teléfonos más pequeños (Pixel 7. IPHONE XR) */
+    @media (max-width: 415px) {
+        .container {
+            width: 90%;  /* Asegurarse de que la caja ocupe casi todo el ancho de la pantalla */
+            margin-left: 5%;  /* Centrar el contenedor */
+            padding: 1rem;
+        }
+
+        .form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+            grid-template-areas: "name"
+                                "lastname"
+                                "email"
+                                "queryT"
+                                "message"
+                                "consent"
+                                "button";
+        }
+
+        input.email, input.firstName, input.lastName, .button {
+            height: 2.5rem;
+            width: 100%;
+        }
+    }
+
+/* Estilo para pantallas grandes como iPhone 14 Pro Max, Galaxy S20 */
+  /*   @media (min-width: 430px) and (max-width: 800px) {
+        .container {
+            width: 90%;
+            margin-left: 5%;
+            padding: 2rem;
+        }
+
+        .form {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "name lastname"
+                                "email email"
+                                "queryT queryT"
+                                "message message"
+                                "consent consent"
+                                "button button";
+        }
+
+        input.email, input.firstName, input.lastName, .button {
+            height: 2.5rem;
+        }
+    } */
+    /* Estilo para pantallas grandes como iPad Pro (12.9 pulgadas) y Surface Pro */
+   /*  @media (min-width: 1024px) {
+        .container {
+            width: 60%;  
+            margin-left: 20%; 
+            padding: 4rem;  
+            font-size: 1.2rem;  
+        }
+
+        .form {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "name lastname"
+                                "email email"
+                                "queryT queryT"
+                                "message message"
+                                "consent consent"
+                                "button button";
+            
+        }
+
+        input.email, input.firstName, input.lastName, .button , .radioQuery1, .radioQuery2{
+            height: 3.5rem;  
+        }
+
+        textarea {
+            height: 15rem;  
+        }
+
+        .button {
+            height: 5rem;  
+            font-size: 1.2rem; 
+        }
+
+        .attribution {
+            font-size: 1rem; 
+        }
+    }
+ */
