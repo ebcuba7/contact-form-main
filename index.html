@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"/>
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
@@ -10,6 +10,10 @@
   <title>Frontend Mentor | Contact form</title>
 </head>
 <body>
+  <section class="sendCorrect" id="messageSent">
+    <label for="text" class="labelCorrect"><strong>!-- Message Sent! </strong></label>
+    <label for="text" class="labelCorrect">Thanks for completing the form. We'll be in touch soon! </label>
+  </section>
   <main>
     <div class="container">
       <h1 class="contactH1"><strong>Contact Us</strong></h1>
@@ -17,45 +21,49 @@
         <div class="firstName">
           <label for="firstN"> First Name <span class="pointGreen">*</span></label><br>
           <input id="firstN" class="firstName" type="text"/>
-          <p class="requiredFirstName" id="requiredFirstName">This field is required</p>
+          <p class="errorMessage" id="requiredFirstName" >This field is required</p>
         </div>
 
         <div class="lastName">
           <label for="lastN"> Last Name <span class="pointGreen">*</span></label><br>
           <input  id="lastN" class="lastName" type="text"/>
-          <p class="requiredLastName" id="requiredLastName">This field is required</p>
+          <p class="errorMessage" id="requiredLastName">This field is required</p>
         </div>
 
         <div class="email">
           <label for="emailA"> Email Address <span class="pointGreen">*</span></label><br>
           <input id="emailA" class="email" type="email" />
-          <p class="requiredEmail" id="requiredEmail"> This field is required</p>
-          <p class="errorEmail" id="errorEmail"> Please enter a valid email address</p>
+          <p class="errorMessage" id="requiredEmail"> This field is required</p>
+          <p class="errorMessage" id="errorEmail"> Please enter a valid email address</p>
         </div>
         
         <div class="queryType">
           <label class="labelQT" for="emailA"> Query Type <span class="pointGreen">*</span></label>
-          <div class="radioQuery1">
+          <div class="radioQuery1" id="radioQuery1">
             <input type="radio" name="queryT" id="generalEnquiry" class="query1"/>
             <label for="generalEnquiry" class="spanQuery1"> General Enquiry</label> 
           </div>
-          <div class="radioQuery2"> 
+          <div class="radioQuery2" id="radioQuery2"> 
             <input type="radio" name="queryT" id="supportRequest" class="query2"/>
-            <label for="Support Request" class="spanQuery2"> Support Request</label> 
+            <label for="supportRequest" class="spanQuery2"> Support Request</label> 
           </div>
-          <p class="selectQueryType" id="selectQueryType">Please, select a query type</p>
+          <p class="errorMessage" id="selectQueryType">Please, select a query type</p>
         </div>
         
         <div class="message">
           <label for="message" class="messageLabel"> Message <span class="pointGreen">*</span></label><br>
-          <textarea name="message" id="message" class="textarea" /></textarea>
-          <p class="requiredMessage" id="requiredMessage"> This field is required</p>
+          <textarea name="message" id="message" class="textarea" ></textarea>
+          <p class="errorMessage" id="requiredMessage"> This field is required</p>
         </div>
         
         <div class="consent">
           <input type="checkbox" name="consent" id="consent" class="consentCheckbox" value="consent"/>
-          <span class="consentSpan">I hereby consent to being contacted by the team  <span class="pointGreen">*</span></span>
-          <p class="requiredConsent" id="requiredConsent"> To submit this form, please consent to be contacted</p>
+          <span class="consentSpan">
+            <label for="consent">
+              <span class="consentSpan">I hereby consent to being contacted by the team  <span class="pointGreen">*</span></span>
+            </label>
+          </span>
+          <p class="errorMessage" id="requiredConsent"> To submit this form, please consent to be contacted</p>
         </div>
         
         <button  class="button" type="submit">Submit</button>
@@ -63,15 +71,10 @@
       </form>
     </div>
   </main>
-<!-- Message Sent!
-  Thanks for completing the form. We'll be in touch soon! -->
-  
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Enelis Blanca Cuba Rondón</a>.
   </div>
-
-  <div class="sendCorrect"></div>
 <script src="./js/validations.js"> </script>
 </body>
 </html>
