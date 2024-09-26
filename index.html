@@ -55,8 +55,13 @@
           <textarea name="message" id="message" class="textarea" ></textarea>
           <p class="errorMessage" id="requiredMessage"> This field is required</p>
         </div>
-        
         <div class="consent">
+          <input type="checkbox" name="consent" id="consent" class="consentCheckbox"/>
+          <label for="consent" class="consentSpan">I hereby consent to being contacted by the team <span class="pointGreen">*</span></label>
+          <p class="errorMessage" id="requiredConsent"> To submit this form, please consent to be contacted</p>
+      </div>
+
+        <!-- <div class="consent">
           <input type="checkbox" name="consent" id="consent" class="consentCheckbox" value="consent"/>
           <span class="consentSpan">
             <label for="consent">
@@ -64,7 +69,7 @@
             </label>
           </span>
           <p class="errorMessage" id="requiredConsent"> To submit this form, please consent to be contacted</p>
-        </div>
+        </div> -->
         
         <button  class="button" type="submit">Submit</button>
         <!-- Please select a query type -->

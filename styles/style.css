@@ -1,432 +1,317 @@
- /****************RESTART ALL CSS *********************************/
- /* ***************************************************************/
-    *{
-        padding: 0px;
-        margin: 0px;
-        box-sizing: border-box;
-    }
+/**************** RESTART CSS *****************/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-    ul,li,ol{
-        list-style: none;
-    }
-    a{
-        text-decoration: none;
-    }
-   /******************************************************************/
-    /****************** FONTS **************************/
-    @font-face 
-    {
-        font-family: karla;
-        src: url("../assets/fonts/Karla-VariableFont_wght.ttf");
-    }
-    @font-face {
-        font-family: karla_italic;
-        src: url("../assets/fonts/Karla-Italic-VariableFont_wght.ttf");
-    }
+ul,li,ol {
+  list-style: none;
+}
 
-    /* Establecer las fuentes */
-    a,div.attribution{
-        font-family: karla;
-        font-size: 0.4rem;
-    }
-    .contactH1{
-        font-size: 1.5rem;
-        color: hsl(187, 24%, 22%);
-    }
-    label, span, button{
-        font-family: karla;
-        font-size: 0.9rem;
-        color: hsl(187, 24%, 22%);  
-    }
-    .pointGreen{
-        font-family: karla;
-        color: #04AA6D;
-    }
-    p{
-        font-family: karla;
-        font-size: 0.9rem;
-        color: hsl(0, 66%, 54%);
-        visibility: hidden;
-        /* display: none; */
-        
-    }
-   /*  /********************************************************************/
-    /*BACKGROUND CONFIGURATIONs*/
-     body{
-        background-color: hsl(148, 38%, 91%);
-        font-family: karla;
-    }
+a {
+  text-decoration: none;
+}
 
-    .container{
-        height: auto;
-        width: 90%;
-        border: 2px solid white;
-        border-radius: 15px;
-        background-color: white;
-        padding: 3%;
-        margin-top: 10%;
-        margin-left: 5%;
-    }
-    .form{
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-        grid-template-areas:"name" 
-                            "lastname" 
-                            "email" 
-                            "queryT" 
-                            "queryT" 
-                            "message" 
-                            "message"
-                            "message"
-                            "consent"
-                            "button";
-        padding-top: 1rem ;    
-        justify-items: stretch;
-    }
-    input, textarea, .radioQuery1, .radioQuery2{
-        border-radius: 0.5rem;
-    } 
-    input.email, input.firstName, input.lastName, .radioQuery1, .radioQuery2{
-        height: 2.5rem;
-        width: 100%;
-        margin-top: 1.8%;
-        margin-bottom: 5%;
-        border: 0.15vh solid hsl(187, 24%, 22%);
-    } 
-    textarea{
-        height: 10rem;
-        width: 100%;  
-        /* margin-left: 3%; */
-        margin-bottom: 5%;
-        margin-top: 3%;
-        resize: none;
-    }
-    .button{
-        margin-top: 0.8rem;
-        background-color: hsl(169, 82%, 27%);
-        color: white;
-        border-radius: 0.5rem;
-        height: 4.5rem;
-        width: 100%;  
-    }
-    .attribution{
-        padding: 2%;
-        font-size: 11px; 
-        text-align: center;
-    }
-    .attribution a { color: hsl(228, 45%, 44%); }
+/************** VARIABLES CSS ****************/
+:root {
+  --color-primary: hsl(187, 24%, 22%);
+  --color-secondary: hsl(148, 38%, 91%);
+  --color-highlight: #04aa6d;
+  --color-danger: hsl(0, 66%, 54%);
+  --color-link: hsl(228, 45%, 44%);
+
+  --font-main: "karla", sans-serif;
+
+  --font-small: 0.9rem;
+  --font-medium: 1rem;
+  --font-large: 1.5rem;
+
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 2rem;
+}
+/****************** FONTS ********************/
+@font-face {
+  font-family: karla;
+  src: url("../assets/fonts/Karla-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: karla_italic;
+  src: url("../assets/fonts/Karla-Italic-VariableFont_wght.ttf");
+}
+/*************** TYPOGRAPHY *******************/
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-secondary);
+}
+a,div.attribution {
+  font-size: 0.4rem;
+}
+h1.contactH1 {
+  font-size: var(--font-large);
+  color: var(--color-primary);
+}
+label,span,button {
+  font-size: var(--font-small);
+  color: var(--color-primary);
+}
+span.pointGreen {
+  color: var(--color-highlight);
+}
+
+p {
+  font-size: var(--font-small);
+  color: var(--color-danger);
+  visibility: hidden;
+}
+
+/**************** FORM *****************/
+.container {
+    width: 16rem;
+    margin: 10% 5% auto;
+    padding: 3%;
+    border: 2px solid white;
+    border-radius: 15px;
+    background-color: white;
+}
+.form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-medium);
+    grid-template-areas:
+      "name"
+      "lastname"
+      "email"
+      "queryT"
+      "message"
+      "consent"
+      "button";
+    padding-top: var(--spacing-medium);
+  }
+
+input, textarea, .radioQuery1, .radioQuery2 {
+    border-radius: var(--spacing-small);
+    width: 100%;
+    border: 0.15vh solid var(--color-primary);
+}
+input.email, input.firstName, input.lastName {
+    height: 2.5rem;
+    margin: 1.8% 0 5%;
+    padding-left: var(--spacing-small);
+  }
+
+textarea {
+    height: 10rem;
+    margin: 3% 0 5%;
+    padding: var(--spacing-small);
+    resize: none;
+}
+button {
+    margin-top: var(--spacing-small);
+    background-color: var(--color-highlight);
+    color: white;
+    border-radius: var(--spacing-small);
+    height: 4.5rem;
+}
+
+/**************** CHECKBOX *****************/
+.consent {
+    display: grid;
+    grid-template-columns: 5% 95%;
+    grid-template-areas: 
+      "check message"
+      "error error";
+    align-items: center;
+    cursor: pointer;
+}
+
+.consentCheckbox {
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1px solid hsl(186, 15%, 59%);
+    cursor: pointer;
+}
+
+.consentCheckbox:checked::before {
+    content: url("../assets/images/icon-checkbox-check.svg");
+    background: var(--color-secondary);
+    border: none;
+}
+label.consentSpan {
+    font-size: var(--font-medium);
+    cursor: pointer;
+    margin-left: var(--spacing-small);
+}
+  
+#requiredConsent {
+    grid-area: error;
+}
+  
+/*************** RADIO BUTTONS ***************/
+
+.queryType {
+    display: grid;
+    gap: 0.4rem;
+}
+.radioQuery1, .radioQuery2 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-small);
+    height: 2.5rem;
+    margin-top: 1.8%;
+}
+
+.radioQuery1 input[type="radio"], .radioQuery2 input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+.radioQuery1 label::before, .radioQuery2 label::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid hsl(186, 15%, 59%);
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 10px;
+    vertical-align: middle;
+    transition: background-color 0.3s, border-color 0.3s;
+  }  
+
+.radioQuery1 input[type="radio"]:checked + label::before,
+.radioQuery2 input[type="radio"]:checked + label::before {
+    content: url("../assets/images/icon-radio-selected.svg");
+    background: none;
+    border: none;
+    margin-bottom: 0.5rem;
+  }
 
 
+/***************** HOVER / FOCUS *****************/
+button:hover, input:hover, textarea:hover {
+    cursor: pointer;
+    border-color: var(--color-highlight);
+    transition: border-color 0.3s ease;
+} 
+input:focus, button:hover{
+    border-color: var(--color-highlight);
+}
 
-    /*Cosassss de los radiobutton*/
-    .queryType{
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0.4rem;
-    }
+/**************** CORRECT SUBMIT*****************/
+.sendCorrect {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primary);
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .sendCorrect.active {
+    display: flex;
+    opacity: 1;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .labelCorrect {
+    color: white;
+    font-size: var(--font-small);
+  }
+  
+/**************** MEDIA QUERIES *****************/
+@media (min-width: 600px) {
+  .container {
+    width: 45%;
+    margin: 7% auto;
+    padding: var(--spacing-large);
+  }
+  .form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "name lastname"
+      "email email"
+      "queryT queryT"
+      "message message"
+      "consent consent"
+      "button button";
+  }
+  .email {
+    grid-area: email;
+  }
+  .queryType {
+    grid-area: queryT;
+  }
+  .message {
+    grid-area: message;
+  }
+  .consent {
+    grid-area: consent;
+  }
+  .button {
+    grid-area: button;
+  }
 
-    .query1, .query2{
-        justify-content: start;
-        height: 1rem;
-        opacity: 50%;
-     }
-     /* .radioQuery1,.radioQuery2{
-         display: grid;
-         grid-template-columns: 20% 80%;
-         align-items: center;
-     } */
-      /* Estilos básicos para el contenedor de radio buttons */
-    .radioQuery1, .radioQuery2 {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        cursor: pointer;
-        position: relative;
-    }
-     
-    /* Ocultar el radio button nativo */
-    .radioQuery1 input[type="radio"], 
-    .radioQuery2 input[type="radio"] {
-        opacity: 0;
-        position: absolute;
-    }
+  .queryType {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:
+      20%
+      60%;
+    grid-template-areas:
+      "label label "
+      "query1 query2 ";
+    row-gap: 0.35rem;
+    column-gap: var(--spacing-medium);
+  }
+  .labelQT {
+    grid-area: label;
+  }
+  input.email,
+  input.firstName,
+  input.lastName,
+  .radioQuery1,
+  .radioQuery2,
+  .button {
+    height: 2.5rem;
+  }
+  .textarea {
+    height: 5rem;
+  }
+}
 
-     .query1, .query2, .spanQuery1, .spanQuery2{
-         cursor: pointer;
-         
-     }
-     /* Estilo inicial del radio button (antes de seleccionarse) */
-    .radioQuery1 label::before, 
-    .radioQuery2 label::before {
-        content: '';
-        display: inline-block;
-        width: 1rem;
-        height: 1rem;
-        border: 2px solid hsl(186, 15%, 59%); /* Borde del radio button */
-        border-radius: 50%;
-        background-color: white;
-        margin-right: 10px;
-        margin-left: 10px;
-        vertical-align: middle;
-        transition: background-color 0.3s, border-color 0.3s;
-    }
-    /* Estilo del SVG que se mostrará cuando el radio button esté seleccionado */
-    .radioQuery1 input[type="radio"]:checked + label::before,
-    .radioQuery2 input[type="radio"]:checked + label::before {
-        content: url('../assets/images/icon-radio-selected.svg'); 
-        background: none; 
-        border: none;
-        margin-bottom: 0.5rem;
-    }
+ @media (max-width: 376px) {
+  .container {
+    width: 15rem; 
+    margin-left: 5%; 
+    padding: var(--spacing-medium);
+  }
 
-
-    /*Cosas del checkbox*/
-    .consent{
-        display: grid;
-        grid-template-columns: 1fr 19fr;
-        justify-items: left;
-        grid-template-areas: "check  message"
-                             "error  error";
-    }
-    .consentCheckbox{
-         grid-area: check;
-    } 
-    .consentSpan{
-        grid-area: message;
-        cursor: pointer;
-    }
-    #requiredConsent{
-        grid-area: error;
-    }
-    
-    .consentCheckbox{
-        height: 0.8rem;
-        margin-top: 0.3rem;
-        margin-right: 1rem;
-     }
-    
-    
-    /*Subprocesos*/
-
-    button:hover{
-        color: white;
-        cursor: pointer;
-    }
-    input:hover,
-    textarea:hover{
-        border-color: #04AA6D;
-        cursor: pointer;
-        border-style: solid;
-        transition: border-color 0.3s ease;
-    }
-
-    .firstName:focus{
-        border: 0.2rem solid  hsl(169, 82%, 27%);;
-    }
-
-    button:hover{
-        color: white;
-        cursor: pointer;
-        transition: border-color 0.3s ease;
-        background-color: #04AA6D;
-    }
-
-    .sendCorrect{
-        position: fixed;
-        top: 20px;
-        left: 50%; 
-        transform: translateX(-50%);
-        background-color: hsl(187, 24%, 22%);
-        padding: 15px 30px;
-        border-radius: 5px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        display: none;
-        opacity: 0; 
-        transition: opacity 0.3s ease-in-out;  
-    }
-    .sendCorrect.active {
-        display: block;
-        display: flex;   
-        flex-direction: column;
-        align-items: center;
-        opacity: 1;
-      }
-      .labelCorrect{
-        color: white;
-        font-family: karla;
-        font-size: 0.9rem;
-    }
-
-    
-
-    /********* COMPUTER VIEW ***************************
-    *************************************************************************/
-    @media(min-width: 400px){
-        .container{
-           
-            height: auto;
-            width: 45%;
-            padding: 2rem;
-            margin-left: 28%; 
-            margin-top: 7%;  
-            border: 2px solid white;
-            border-radius: 0.6rem;
-        }
-        .form{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.6rem;
-            grid-template-areas:"name lastname" 
-                                "email email" 
-                                "queryT queryT" 
-                                "message message"
-                                "consent consent"
-                                "button button";
-            padding-top: 1.5em ;   
-            justify-items: auto;
-            align-items: end;
-            
-        }
-         .firstName{
-            
-            grid-area: name;  
-            align-content: normal;
-        }
-        .lastName{
-            grid-area: lastname;
-            
-        }
-        .email{
-            grid-area: email;  
-        }
-        .queryType{
-            grid-area: queryT;
-        }
-        .message{
-            grid-area: message;
-        }
-        .consent{
-            grid-area: consent;
-        }
-        .button{
-            grid-area: button;
-        }
-       
-        .queryType{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 20%
-                                60%;
-            grid-template-areas:"label label "
-                                "query1 query2 ";
-            row-gap: 0.35rem;
-            column-gap: 0.6rem;
-        }
-        .labelQT{
-            grid-area: label;
-        }
-        input.email, input.firstName, input.lastName, .radioQuery1, .radioQuery2,.button{
-            height: 2rem;
-            width: 100%;
-        } 
-        .textarea{
-            height: 4rem;  
-        }
-        
-        .consentSpan{
-            font-size: 0.8rem;
-            cursor: pointer;
-        }
-        
-    }
-    /*******************************************************************************/
-    /* Estilo para teléfonos más pequeños (Pixel 7. IPHONE XR) */
-    @media (max-width: 415px) {
-        .container {
-            width: 90%;  /* Asegurarse de que la caja ocupe casi todo el ancho de la pantalla */
-            margin-left: 5%;  /* Centrar el contenedor */
-            padding: 1rem;
-        }
-
-        .form {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.5rem;
-            grid-template-areas: "name"
-                                "lastname"
-                                "email"
-                                "queryT"
-                                "message"
-                                "consent"
-                                "button";
-        }
-
-        input.email, input.firstName, input.lastName, .button {
-            height: 2.5rem;
-            width: 100%;
-        }
-    }
-
-/* Estilo para pantallas grandes como iPhone 14 Pro Max, Galaxy S20 */
-  /*   @media (min-width: 430px) and (max-width: 800px) {
-        .container {
-            width: 90%;
-            margin-left: 5%;
-            padding: 2rem;
-        }
-
-        .form {
-            grid-template-columns: 1fr 1fr;
-            grid-template-areas: "name lastname"
-                                "email email"
-                                "queryT queryT"
-                                "message message"
-                                "consent consent"
-                                "button button";
-        }
-
-        input.email, input.firstName, input.lastName, .button {
-            height: 2.5rem;
-        }
-    } */
-    /* Estilo para pantallas grandes como iPad Pro (12.9 pulgadas) y Surface Pro */
-   /*  @media (min-width: 1024px) {
-        .container {
-            width: 60%;  
-            margin-left: 20%; 
-            padding: 4rem;  
-            font-size: 1.2rem;  
-        }
-
-        .form {
-            grid-template-columns: 1fr 1fr;
-            grid-template-areas: "name lastname"
-                                "email email"
-                                "queryT queryT"
-                                "message message"
-                                "consent consent"
-                                "button button";
-            
-        }
-
-        input.email, input.firstName, input.lastName, .button , .radioQuery1, .radioQuery2{
-            height: 3.5rem;  
-        }
-
-        textarea {
-            height: 15rem;  
-        }
-
-        .button {
-            height: 5rem;  
-            font-size: 1.2rem; 
-        }
-
-        .attribution {
-            font-size: 1rem; 
-        }
-    }
- */
-
- 
+  .form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    grid-template-areas:
+      "name"
+      "lastname"
+      "email"
+      "queryT"
+      "message"
+      "consent"
+      "button";
+  }
+} 
+ .attribution {
+  padding: 2%;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
