@@ -127,7 +127,8 @@ function validateEmail(emailField) {
 function hideError(field, errorId) {
     const errorElement = document.getElementById(errorId);
     if (errorElement) {
-        errorElement.style.visibility = "hidden";
+        /* errorElement.style.visibility = "hidden"; */
+        errorElement.style.display = "none";
     }
     field.style.borderColor = ""; // Restablecer el borde del campo
 }
@@ -171,7 +172,8 @@ function showMessageSent() {
 // MOSTRAR ERROR
 function showError(elementId, message) {
     const elementHTML = document.getElementById(elementId);
-    elementHTML.style.visibility = "visible";
+    elementHTML.style.display = "inline-block";
+    /* elementHTML.style.visibility = "visible";  */
     if (message) elementHTML.textContent = message;
 }
 
@@ -189,7 +191,8 @@ function resetStyles() {
 
     const errorMessages = document.querySelectorAll(".error-message");
     errorMessages.forEach(error => {
-        error.style.visibility = "hidden"; // Ocultar todos los errores
+        /* error.style.visibility = "hidden";   */
+        error.style.display = "none";
     });
 }
 

@@ -17,24 +17,33 @@
   <main>
     <div class="container">
       <h1 class="contactH1"><strong>Contact Us</strong></h1>
+
       <form action="#" method="get" class="form">
         <div class="firstName">
           <label for="firstN"> First Name <span class="pointGreen">*</span></label><br>
           <input id="firstN" class="firstName" type="text"/>
-          <p class="errorMessage" id="requiredFirstName" >This field is required</p>
+          <div class="errorMesageDiv" id="errorMesageDiv">
+            <p class="errorMessage" id="requiredFirstName" >This field is required</p>
+          </div>
         </div>
 
         <div class="lastName">
           <label for="lastN"> Last Name <span class="pointGreen">*</span></label><br>
           <input  id="lastN" class="lastName" type="text"/>
-          <p class="errorMessage" id="requiredLastName">This field is required</p>
+          <div class="errorMessageDiv" id="errorMessageDiv">
+            <p class="errorMessage" id="requiredLastName">This field is required</p>
+          </div>
         </div>
 
         <div class="email">
           <label for="emailA"> Email Address <span class="pointGreen">*</span></label><br>
           <input id="emailA" class="email" type="email" />
-          <p class="errorMessage" id="requiredEmail"> This field is required</p>
-          <p class="errorMessage" id="errorEmail"> Please enter a valid email address</p>
+          <div class="errorMessageEmailRequired">
+            <p class="errorMessage" id="requiredEmail"> This field is required</p>
+          </div>
+          <div class="errorMessageEmailWrong">
+            <p class="errorMessage" id="errorEmail"> Please enter a valid email address</p>
+          </div>
         </div>
         
         <div class="queryType">
@@ -53,26 +62,20 @@
         <div class="message">
           <label for="message" class="messageLabel"> Message <span class="pointGreen">*</span></label><br>
           <textarea name="message" id="message" class="textarea" ></textarea>
-          <p class="errorMessage" id="requiredMessage"> This field is required</p>
+          <div class="errorMessageTextArea">
+            <p class="errorMessage" id="requiredMessage"> This field is required</p>
+          </div>
         </div>
         <div class="consent">
-          <input type="checkbox" name="consent" id="consent" class="consentCheckbox"/>
-          <label for="consent" class="consentSpan">I hereby consent to being contacted by the team <span class="pointGreen">*</span></label>
-          <p class="errorMessage" id="requiredConsent"> To submit this form, please consent to be contacted</p>
-      </div>
-
-        <!-- <div class="consent">
-          <input type="checkbox" name="consent" id="consent" class="consentCheckbox" value="consent"/>
-          <span class="consentSpan">
-            <label for="consent">
-              <span class="consentSpan">I hereby consent to being contacted by the team  <span class="pointGreen">*</span></span>
-            </label>
+          <span class="consentCheckbox">
+            <input type="checkbox" name="consent" id="consent"/>
           </span>
-          <p class="errorMessage" id="requiredConsent"> To submit this form, please consent to be contacted</p>
-        </div> -->
-        
+          <label for="consent" class="consentSpan">I hereby consent to being contacted by the team <span class="pointGreen">*</span></label>
+          <div class="errorMessageConsent">
+            <p class="errorMessage" id="requiredConsent"> To submit this form, please consent to be contacted</p>
+          </div>   
+        </div>
         <button  class="button" type="submit">Submit</button>
-        <!-- Please select a query type -->
       </form>
     </div>
   </main>

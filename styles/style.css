@@ -63,15 +63,17 @@ span.pointGreen {
 p {
   font-size: var(--font-small);
   color: var(--color-danger);
-  visibility: hidden;
+  display: none;
 }
 
 /**************** FORM *****************/
+body{
+     height: 100%;
+     width: auto;   
+}
 .container {
-    width: 16rem;
-    margin: 10% 5% auto;
-    padding: 3%;
-    border: 2px solid white;
+    padding: var(--spacing-large);
+    margin: 10% 4% auto 4%;
     border-radius: 15px;
     background-color: white;
 }
@@ -126,25 +128,30 @@ button {
     cursor: pointer;
 }
 
-.consentCheckbox {
+.consentCheckbox input {
     width: 1.2rem;
     height: 1.2rem;
     border: 1px solid hsl(186, 15%, 59%);
     cursor: pointer;
+    border: none;
+    border-radius: 0;
+    
 }
 
-.consentCheckbox:checked::before {
-    content: url("../assets/images/icon-checkbox-check.svg");
-    background: var(--color-secondary);
-    border: none;
+.consentCheckbox input:checked {
+    appearance: none;
+    background-image: url("../assets/images/icon-checkbox-check.svg");
+    background-size: cover;
 }
+
+
 label.consentSpan {
     font-size: var(--font-medium);
     cursor: pointer;
     margin-left: var(--spacing-small);
 }
   
-#requiredConsent {
+.errorMessageConsent {
     grid-area: error;
 }
   
@@ -201,15 +208,15 @@ input:focus, button:hover{
 /**************** CORRECT SUBMIT*****************/
 .sendCorrect {
     position: fixed;
-    top: 20px;
+    top: 5px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-60%);
     background-color: var(--color-primary);
     padding: 15px 30px;
     border-radius: 5px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    display: none;
-    opacity: 0;
+   /*  display: none;
+    opacity: 0; */
     transition: opacity 0.3s ease-in-out;
   }
   
@@ -226,7 +233,7 @@ input:focus, button:hover{
   }
   
 /**************** MEDIA QUERIES *****************/
-@media (min-width: 600px) {
+/* @media (min-width: 600px) {
   .container {
     width: 45%;
     margin: 7% auto;
@@ -284,9 +291,207 @@ input:focus, button:hover{
   .textarea {
     height: 5rem;
   }
+} */
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        width: 80%;
+        margin: 7% auto;
+        padding: var(--spacing-large);
+      }
+      .form {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "name lastname"
+          "email email"
+          "queryT queryT"
+          "message message"
+          "consent consent"
+          "button button";
+      }
+      .email {
+        grid-area: email;
+      }
+      .queryType {
+        grid-area: queryT;
+      }
+      .message {
+        grid-area: message;
+      }
+      .consent {
+        grid-area: consent;
+      }
+      .button {
+        grid-area: button;
+      }
+    
+      .queryType {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows:
+          20%
+          60%;
+        grid-template-areas:
+          "label label "
+          "query1 query2 ";
+        row-gap: 0.35rem;
+        column-gap: var(--spacing-medium);
+      }
+      .labelQT {
+        grid-area: label;
+      }
+      input.email,
+      input.firstName,
+      input.lastName,
+      .radioQuery1,
+      .radioQuery2,
+      .button {
+        height: 2.5rem;
+      }
+      .textarea {
+        height: 5rem;
+      }
+    .sendCorrect{
+    left:50%;
+    transform: translateX(-55%);
+    width:30%;
+    }
 }
 
- @media (max-width: 376px) {
+@media (min-width: 768px) /* and (max-width: 1024px) */ { 
+    .container {
+        width: 50%;
+        margin: 10% auto;
+        padding: var(--spacing-large);
+      }
+      .form {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "name lastname"
+          "email email"
+          "queryT queryT"
+          "message message"
+          "consent consent"
+          "button button";
+      }
+      .email {
+        grid-area: email;
+      }
+      .queryType {
+        grid-area: queryT;
+      }
+      .message {
+        grid-area: message;
+      }
+      .consent {
+        grid-area: consent;
+      }
+      .button {
+        grid-area: button;
+      }
+    
+      .queryType {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows:
+          20%
+          60%;
+        grid-template-areas:
+          "label label "
+          "query1 query2 ";
+        row-gap: 0.35rem;
+        column-gap: var(--spacing-medium);
+      }
+      .labelQT {
+        grid-area: label;
+      }
+      input.email,
+      input.firstName,
+      input.lastName,
+      .radioQuery1,
+      .radioQuery2,
+      .button {
+        height: 2.5rem;
+      }
+      .textarea {
+        height: 5rem;
+      }
+    .sendCorrect{
+        left: 35%;
+        transform: translateX(-55%);
+        width: 30%;
+    }
+} 
+
+/* Escritorio grande */
+/* @media (min-width: 1025px) {
+    body {
+        font-size: 18px;
+    }
+    body {
+        font-size: 15px; 
+    } 
+    .container {
+        width: 45%;
+        margin: 7% auto;
+        padding: var(--spacing-large);
+      }
+      .form {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "name lastname"
+          "email email"
+          "queryT queryT"
+          "message message"
+          "consent consent"
+          "button button";
+      }
+      .email {
+        grid-area: email;
+      }
+      .queryType {
+        grid-area: queryT;
+      }
+      .message {
+        grid-area: message;
+      }
+      .consent {
+        grid-area: consent;
+      }
+      .button {
+        grid-area: button;
+      }
+    
+      .queryType {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows:
+          20%
+          60%;
+        grid-template-areas:
+          "label label "
+          "query1 query2 ";
+        row-gap: 0.35rem;
+        column-gap: var(--spacing-medium);
+      }
+      .labelQT {
+        grid-area: label;
+      }
+      input.email,
+      input.firstName,
+      input.lastName,
+      .radioQuery1,
+      .radioQuery2,
+      .button {
+        height: 2.5rem;
+      }
+      .textarea {
+        height: 5rem;
+      }
+}
+ */
+
+/*  @media (max-width: 376px) {
   .container {
     width: 15rem; 
     margin-left: 5%; 
@@ -306,7 +511,7 @@ input:focus, button:hover{
       "consent"
       "button";
   }
-} 
+}  */
  .attribution {
   padding: 2%;
   font-size: 11px;
