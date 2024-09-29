@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     setupFormSubmit();
     setupRadioButtons();
-    setupFieldListeners(); // Agregar listeners para ocultar errores en tiempo real
-    setupCheckboxListener(); // Listener para el checkbox
-    setupInputBorderFocus() ;
+    setupFieldListeners(); 
+    setupCheckboxListener(); 
+    /* setupInputBorderFocus() ; */
 });
 
 function setupFormSubmit() {
@@ -13,8 +13,8 @@ function setupFormSubmit() {
 
         if (validateForm()) {
             showMessageSent();
-            form.reset(); // Restablecer el formulario
-            resetStyles(); // Resetear los estilos de error si es necesario
+            form.reset(); 
+            resetStyles(); 
         }
     });
 }
@@ -63,7 +63,7 @@ function setupCheckboxListener() {
     });
 }
 
-function setupInputBorderFocus() {
+/* function setupInputBorderFocus() {
     console.log("La función setupInputBorderFocus() se ha ejecutado.");
     const inputFields = document.querySelectorAll('input, textarea');
     inputFields.forEach(input => {
@@ -75,7 +75,7 @@ function setupInputBorderFocus() {
             input.style.borderColor = "hsl(187, 24%, 22%)";
         });
     });
-}
+} */
 
 function validateForm() {
     const fields = {

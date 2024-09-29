@@ -197,7 +197,7 @@ label.consentSpan {
 /***************** HOVER / FOCUS *****************/
 button:hover, input:hover, textarea:hover{
     cursor: pointer;
-    border-color: var(--color-highlight);
+    border: 0.1rem solid var(--color-highlight);
     transition: border-color 0.3s ease;
 } 
 button:hover{
@@ -205,8 +205,7 @@ button:hover{
 }
 
 input:focus, textarea:focus {
-    border-color: #04aa6d;
-    border: 0.1rem solid;
+    border:0.1rem solid var(--color-highlight);
     outline: none; 
     cursor: pointer;
 }
