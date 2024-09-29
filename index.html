@@ -11,22 +11,22 @@
 </head>
 <body>
   <section class="sendCorrect" id="messageSent">
-    <label for="text" class="labelCorrect"><strong>!-- Message Sent! </strong></label>
+    <label for="text" class="labelCorrect"><img class="imageSuccess" src="../contact-form-main/assets/images/icon-success-check.svg"><strong>Message Sent! </strong></label> <br>
     <label for="text" class="labelCorrect">Thanks for completing the form. We'll be in touch soon! </label>
   </section>
-  <main>
+   <main>
     <div class="container">
       <h1 class="contactH1"><strong>Contact Us</strong></h1>
 
       <form action="#" method="get" class="form">
-        <div class="firstName">
-          <label for="firstN"> First Name <span class="pointGreen">*</span></label><br>
+      <div class="firstName">
+          <label for="firstN"> First Name <span class="pointGreen">*</span></label>
           <input id="firstN" class="firstName" type="text"/>
           <div class="errorMesageDiv" id="errorMesageDiv">
             <p class="errorMessage" id="requiredFirstName" >This field is required</p>
           </div>
         </div>
-
+ 
         <div class="lastName">
           <label for="lastN"> Last Name <span class="pointGreen">*</span></label><br>
           <input  id="lastN" class="lastName" type="text"/>
@@ -36,7 +36,7 @@
         </div>
 
         <div class="email">
-          <label for="emailA"> Email Address <span class="pointGreen">*</span></label><br>
+          <label for="emailA"> Email Address <span class="pointGreen">*</span></label>
           <input id="emailA" class="email" type="email" />
           <div class="errorMessageEmailRequired">
             <p class="errorMessage" id="requiredEmail"> This field is required</p>
@@ -46,12 +46,12 @@
           </div>
         </div>
         
-        <div class="queryType">
-          <label class="labelQT" for="emailA"> Query Type <span class="pointGreen">*</span></label>
-          <div class="radioQuery1" id="radioQuery1">
+         <div class="queryType">
+         <label class="labelQT" for="emailA"> Query Type <span class="pointGreen">*</span></label>
+            <div class="radioQuery1" id="radioQuery1">
             <input type="radio" name="queryT" id="generalEnquiry" class="query1"/>
             <label for="generalEnquiry" class="spanQuery1"> General Enquiry</label> 
-          </div>
+          </div> 
           <div class="radioQuery2" id="radioQuery2"> 
             <input type="radio" name="queryT" id="supportRequest" class="query2"/>
             <label for="supportRequest" class="spanQuery2"> Support Request</label> 
@@ -60,7 +60,7 @@
         </div>
         
         <div class="message">
-          <label for="message" class="messageLabel"> Message <span class="pointGreen">*</span></label><br>
+          <label for="message" class="messageLabel"> Message <span class="pointGreen">*</span></label>
           <textarea name="message" id="message" class="textarea" ></textarea>
           <div class="errorMessageTextArea">
             <p class="errorMessage" id="requiredMessage"> This field is required</p>
@@ -82,7 +82,7 @@
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Enelis Blanca Cuba Rondón</a>.
-  </div>
+  </div> 
 <script src="./js/validations.js"> </script>
 </body>
 </html>

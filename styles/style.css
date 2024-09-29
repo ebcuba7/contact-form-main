@@ -67,13 +67,10 @@ p {
 }
 
 /**************** FORM *****************/
-body{
-     height: 100%;
-     width: auto;   
-}
 .container {
     padding: var(--spacing-large);
-    margin: 10% 4% auto 4%;
+    /* margin: 10% 4% auto 4%; */
+    margin: 2rem 1rem;
     border-radius: 15px;
     background-color: white;
 }
@@ -95,17 +92,16 @@ body{
 input, textarea, .radioQuery1, .radioQuery2 {
     border-radius: var(--spacing-small);
     width: 100%;
-    border: 0.15vh solid var(--color-primary);
+    border: 0.1vh solid var(--color-primary);
 }
 input.email, input.firstName, input.lastName {
     height: 2.5rem;
-    margin: 1.8% 0 5%;
+    margin: 2% 0 2%;
     padding-left: var(--spacing-small);
   }
-
 textarea {
     height: 10rem;
-    margin: 3% 0 5%;
+    margin: 1.5% 0 2%;
     padding: var(--spacing-small);
     resize: none;
 }
@@ -126,11 +122,12 @@ button {
       "error error";
     align-items: center;
     cursor: pointer;
+    column-gap: 0.8rem;
 }
 
 .consentCheckbox input {
-    width: 1.2rem;
-    height: 1.2rem;
+    max-width: 1rem;
+    height: 1rem;
     border: 1px solid hsl(186, 15%, 59%);
     cursor: pointer;
     border: none;
@@ -148,7 +145,6 @@ button {
 label.consentSpan {
     font-size: var(--font-medium);
     cursor: pointer;
-    margin-left: var(--spacing-small);
 }
   
 .errorMessageConsent {
@@ -167,6 +163,9 @@ label.consentSpan {
     gap: var(--spacing-small);
     height: 2.5rem;
     margin-top: 1.8%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
 .radioQuery1 input[type="radio"], .radioQuery2 input[type="radio"] {
@@ -196,30 +195,43 @@ label.consentSpan {
 
 
 /***************** HOVER / FOCUS *****************/
-button:hover, input:hover, textarea:hover {
+button:hover, input:hover, textarea:hover{
     cursor: pointer;
     border-color: var(--color-highlight);
     transition: border-color 0.3s ease;
 } 
-input:focus, button:hover{
+button:hover{
     border-color: var(--color-highlight);
 }
 
-/**************** CORRECT SUBMIT*****************/
+input:focus, textarea:focus {
+    border-color: #04aa6d;
+    border: 0.1rem solid;
+    outline: none; 
+    cursor: pointer;
+}
+
+input, textarea {
+    transition: border-color 0.3s ease-in-out; 
+}
+/***************** CORRECT SUBMIT*****************/
 .sendCorrect {
     position: fixed;
     top: 5px;
-    left: 50%;
-    transform: translateX(-60%);
+    left: 20%;
+    transform: translateX(-12%);
+    width: auto;
     background-color: var(--color-primary);
-    padding: 15px 30px;
+    padding: 1.5rem 1.5rem;
     border-radius: 5px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-   /*  display: none;
-    opacity: 0; */
+    display: none;
+    opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.2rem;
   }
-  
   .sendCorrect.active {
     display: flex;
     opacity: 1;
@@ -231,71 +243,29 @@ input:focus, button:hover{
     color: white;
     font-size: var(--font-small);
   }
-  
+  .imageSuccess{
+    width: 1rem;
+    height: 1rem;
+    margin-right: 4%;
+  }
 /**************** MEDIA QUERIES *****************/
-/* @media (min-width: 600px) {
-  .container {
-    width: 45%;
-    margin: 7% auto;
-    padding: var(--spacing-large);
-  }
-  .form {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "name lastname"
-      "email email"
-      "queryT queryT"
-      "message message"
-      "consent consent"
-      "button button";
-  }
-  .email {
-    grid-area: email;
-  }
-  .queryType {
-    grid-area: queryT;
-  }
-  .message {
-    grid-area: message;
-  }
-  .consent {
-    grid-area: consent;
-  }
-  .button {
-    grid-area: button;
-  }
+@media(max-width: 300px){
+    .container {
+        max-width: 90%;
+        margin: 2rem auto;
+        padding: var(--spacing-medium);
+      }
+      .sendCorrect{
+        left:7.5rem;
+       width: 80%;
+    }
+}
 
-  .queryType {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows:
-      20%
-      60%;
-    grid-template-areas:
-      "label label "
-      "query1 query2 ";
-    row-gap: 0.35rem;
-    column-gap: var(--spacing-medium);
-  }
-  .labelQT {
-    grid-area: label;
-  }
-  input.email,
-  input.firstName,
-  input.lastName,
-  .radioQuery1,
-  .radioQuery2,
-  .button {
-    height: 2.5rem;
-  }
-  .textarea {
-    height: 5rem;
-  }
-} */
+
 /* Tablets */
 @media (min-width: 481px) and (max-width: 768px) {
     .container {
-        width: 80%;
+        max-width: 80%;
         margin: 7% auto;
         padding: var(--spacing-large);
       }
@@ -340,28 +310,22 @@ input:focus, button:hover{
       .labelQT {
         grid-area: label;
       }
-      input.email,
-      input.firstName,
-      input.lastName,
-      .radioQuery1,
-      .radioQuery2,
-      .button {
+      input.email,input.firstName,input.lastName,.radioQuery1,.radioQuery2,.button {
         height: 2.5rem;
       }
       .textarea {
         height: 5rem;
       }
     .sendCorrect{
-    left:50%;
-    transform: translateX(-55%);
-    width:30%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
-
-@media (min-width: 768px) /* and (max-width: 1024px) */ { 
+/*Small Monitors*/
+@media (min-width: 768px)  and (max-width: 1024px) { 
     .container {
-        width: 50%;
-        margin: 10% auto;
+       /*  max-width: auto; */
+        margin: 5rem 8rem; 
         padding: var(--spacing-large);
       }
       .form {
@@ -416,24 +380,17 @@ input:focus, button:hover{
       .textarea {
         height: 5rem;
       }
-    .sendCorrect{
-        left: 35%;
-        transform: translateX(-55%);
-        width: 30%;
+      .sendCorrect{
+        left: 50%;
+        transform: translateX(-50%);
     }
 } 
-
-/* Escritorio grande */
-/* @media (min-width: 1025px) {
-    body {
-        font-size: 18px;
-    }
-    body {
-        font-size: 15px; 
-    } 
+ 
+/* Big Monitors */
+@media (min-width: 1024px){
     .container {
-        width: 45%;
-        margin: 7% auto;
+        max-width: 40rem;
+        margin: 6rem auto;
         padding: var(--spacing-large);
       }
       .form {
@@ -488,30 +445,12 @@ input:focus, button:hover{
       .textarea {
         height: 5rem;
       }
-}
- */
-
-/*  @media (max-width: 376px) {
-  .container {
-    width: 15rem; 
-    margin-left: 5%; 
-    padding: var(--spacing-medium);
-  }
-
-  .form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-    grid-template-areas:
-      "name"
-      "lastname"
-      "email"
-      "queryT"
-      "message"
-      "consent"
-      "button";
-  }
-}  */
+      .sendCorrect{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+} 
+/************* ATTRIBUTION ******************/
  .attribution {
   padding: 2%;
   font-size: 11px;

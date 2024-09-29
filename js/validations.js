@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     setupRadioButtons();
     setupFieldListeners(); // Agregar listeners para ocultar errores en tiempo real
     setupCheckboxListener(); // Listener para el checkbox
+    setupInputBorderFocus() ;
 });
 
-// CONFIGURAR ENVÍO DE FORMULARIO
 function setupFormSubmit() {
     const form = document.querySelector("form");
     form.addEventListener("submit", (event) => {
@@ -18,8 +18,6 @@ function setupFormSubmit() {
         }
     });
 }
-
-// CONFIGURAR BOTONES DE RADIO
 function setupRadioButtons() {
     const divQuery1 = document.getElementById("radioQuery1");
     const divQuery2 = document.getElementById("radioQuery2");
@@ -35,8 +33,6 @@ function setupRadioButtons() {
         });
     });
 }
-
-// CONFIGURAR EVENTOS PARA CAMPOS INDIVIDUALES
 function setupFieldListeners() {
     const fields = {
         firstName: document.getElementById("firstN"),
@@ -44,26 +40,22 @@ function setupFieldListeners() {
         email: document.getElementById("emailA"),
         message: document.getElementById("message")
     };
-
     Object.keys(fields).forEach(key => {
         fields[key].addEventListener("input", () => {
             hideError(fields[key], `required${capitalize(key)}`);
         });
     });
-
-    // Agregar listener específico para validar el email en tiempo real
     fields.email.addEventListener("input", () => {
         if (!validateEmail(fields.email)) {
             showError("errorEmail", "Please enter a valid email address");
             markInputError(fields.email);
         } else {
             hideError(fields.email, "errorEmail");
-            unmarkInputError(fields.email); // Restablecer el estilo del campo
+            unmarkInputError(fields.email); 
         }
     });
 }
 
-// CONFIGURAR LISTENER PARA CHECKBOX
 function setupCheckboxListener() {
     const consentCheckbox = document.getElementById("consent");
     consentCheckbox.addEventListener("change", () => {
@@ -71,7 +63,20 @@ function setupCheckboxListener() {
     });
 }
 
-// VALIDAR FORMULARIO
+function setupInputBorderFocus() {
+    console.log("La función setupInputBorderFocus() se ha ejecutado.");
+    const inputFields = document.querySelectorAll('input, textarea');
+    inputFields.forEach(input => {
+        input.addEventListener('focus', () => {
+            input.style.borderColor = "hsl(169,82%,27%)"; 
+        });
+
+        input.addEventListener('blur', () => {
+            input.style.borderColor = "hsl(187, 24%, 22%)";
+        });
+    });
+}
+
 function validateForm() {
     const fields = {
         firstName: document.getElementById("firstN"),
@@ -95,18 +100,16 @@ function validateForm() {
     return isValid;
 }
 
-// VALIDAR UN CAMPO
 function validateField(field, errorId) {
     if (field.value.trim() === "") {
         showError(errorId);
         markInputError(field);
         return false;
     }
-    hideError(field, errorId); // Ocultar el error si el campo es válido
+    hideError(field, errorId); 
     return true;
 }
 
-// VALIDAR EMAIL
 function validateEmail(emailField) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailField.value.trim() === "") {
@@ -118,27 +121,24 @@ function validateEmail(emailField) {
         markInputError(emailField);
         return false;
     }
-    hideError(emailField, "errorEmail"); // Ocultar error cuando el correo es válido
-    unmarkInputError(emailField); // Restablecer el estilo del campo si es válido
+    hideError(emailField, "errorEmail"); 
+    unmarkInputError(emailField);
     return true;
 }
 
-// OCULTAR ERROR
 function hideError(field, errorId) {
     const errorElement = document.getElementById(errorId);
     if (errorElement) {
-        /* errorElement.style.visibility = "hidden"; */
+        
         errorElement.style.display = "none";
     }
-    field.style.borderColor = ""; // Restablecer el borde del campo
+    field.style.borderColor = ""; 
 }
 
-// RESTABLECER EL ESTILO DEL CAMPO SI ES VÁLIDO
 function unmarkInputError(inputField) {
-    inputField.style.borderColor = ""; // Eliminar el borde rojo del campo
+    inputField.style.borderColor = "";
 }
 
-// VALIDAR TIPO DE CONSULTA
 function validateQueryType(query1, query2) {
     if (!query1 && !query2) {
         showError("selectQueryType");
@@ -148,7 +148,6 @@ function validateQueryType(query1, query2) {
     return true;
 }
 
-// VALIDAR CONSENTIMIENTO
 function validateConsent(consent) {
     if (!consent) {
         showError("requiredConsent");
@@ -158,7 +157,7 @@ function validateConsent(consent) {
     return true;
 }
 
-// MOSTRAR MENSAJE ENVIADO
+
 function showMessageSent() {
     const sendMessage = document.getElementById("messageSent");
     sendMessage.classList.add("active");
@@ -167,60 +166,53 @@ function showMessageSent() {
     }, 3000);
 }
 
-// FUNCIONES AUXILIARES
-
-// MOSTRAR ERROR
+//  AUXILIAR FUNCTIONS
 function showError(elementId, message) {
     const elementHTML = document.getElementById(elementId);
     elementHTML.style.display = "inline-block";
-    /* elementHTML.style.visibility = "visible";  */
     if (message) elementHTML.textContent = message;
 }
 
-// MARCAR CAMPO CON ERROR
+
 function markInputError(inputField) {
     inputField.style.borderColor = "hsl(0, 66%, 54%)";
 }
 
-// RESETEAR ESTILOS DESPUÉS DEL ENVÍO
+
 function resetStyles() {
     const inputs = document.querySelectorAll("input, textarea");
     inputs.forEach(input => {
-        input.style.borderColor = ""; // Restablecer bordes
+        input.style.borderColor = ""; 
     });
 
     const errorMessages = document.querySelectorAll(".error-message");
     errorMessages.forEach(error => {
-        /* error.style.visibility = "hidden";   */
         error.style.display = "none";
     });
 }
 
-// SELECCIONAR RADIO BUTTON Y CAMBIAR COLOR
 function selectRadio(selectedDiv, otherDiv, radioId) {
     toggleRadioStyle(selectedDiv, otherDiv);
     document.getElementById(radioId).checked = true;
 }
 
-// CAMBIAR COLOR DE LOS BOTONES DE RADIO
 function toggleRadioStyle(selectedElement, otherElement) {
     const removeSvg = (element) => {
         const existingSvg = element.querySelector("svg");
         if (existingSvg) existingSvg.remove();
     };
 
-    // Resetear otros radios
+    // Reset other radio
     otherElement.style.backgroundColor = "white";
     otherElement.style.borderColor = "hsl(186, 15%, 59%)";
     removeSvg(otherElement);
 
-    // Añadir estilos seleccionados
+    //Add new styles
     selectedElement.style.backgroundColor = "hsl(148, 38%, 91%)";
     selectedElement.style.borderColor = "hsl(169, 82%, 27%)";
     removeSvg(selectedElement);
 }
 
-// Capitalizar la primera letra de una palabra
 function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
