@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png"/>
+  <meta name="description" content="This is my first desing page in html"/>
+  <link rel="stylesheet" href="./styles/style.css">
+  
+  <title>Frontend Mentor | Contact form</title>
+</head>
+<body>
+  <section class="sendCorrect" id="messageSent">
+    <label for="text" class="labelCorrect"><img class="imageSuccess" src="../contact-form-main/assets/images/icon-success-check.svg"><strong>Message Sent! </strong></label> <br>
+    <label for="text" class="labelCorrect">Thanks for completing the form. We'll be in touch soon! </label>
+  </section>
+  <main>
+    <div class="container">
+      <h1 class="contactH1"><strong>Contact Us</strong></h1>
+
+      <form action="#" method="get" class="form">
+        <div class="firstName">
+          <label for="firstN"> First Name <span class="pointGreen">*</span></label>
+          <input id="firstN" class="firstName" type="text"/>
+          <div class="errorMesageDiv" id="errorMesageDiv">
+            <p class="errorMessage" id="requiredFirstName" >This field is required</p>
+          </div>
+        </div>
+
+        <div class="lastName">
+          <label for="lastN"> Last Name <span class="pointGreen">*</span></label><br>
+          <input  id="lastN" class="lastName" type="text"/>
+          <div class="errorMessageDiv" id="errorMessageDiv">
+            <p class="errorMessage" id="requiredLastName">This field is required</p>
+          </div>
+        </div>
+
+        <div class="email">
+          <label for="emailA"> Email Address <span class="pointGreen">*</span></label>
+          <input id="emailA" class="email" type="email" />
+          <div class="errorMessageEmailRequired">
+            <p class="errorMessage" id="requiredEmail"> This field is required</p>
+          </div>
+          <div class="errorMessageEmailWrong">
+            <p class="errorMessage" id="errorEmail"> Please enter a valid email address</p>
+          </div>
+        </div>
+        
+        <div class="queryType">
+          <label class="labelQT" for="emailA"> Query Type <span class="pointGreen">*</span></label>
+          <div class="radioQuery1" id="radioQuery1">
+            <input type="radio" name="queryT" id="generalEnquiry" class="query1"/>
+            <label for="generalEnquiry" class="spanQuery1"> General Enquiry</label> 
+          </div>
+          <div class="radioQuery2" id="radioQuery2"> 
+            <input type="radio" name="queryT" id="supportRequest" class="query2"/>
+            <label for="supportRequest" class="spanQuery2"> Support Request</label> 
+          </div>
+          <p class="errorMessage" id="selectQueryType">Please, select a query type</p>
+        </div>
+        
+        <div class="message">
+          <label for="message" class="messageLabel"> Message <span class="pointGreen">*</span></label>
+          <textarea name="message" id="message" class="textarea" ></textarea>
+          <div class="errorMessageTextArea">
+            <p class="errorMessage" id="requiredMessage"> This field is required</p>
+          </div>
+        </div>
+        <div class="consent">
+          <span class="consentCheckbox">
+            <input type="checkbox" name="consent" id="consent"/>
+          </span>
+          <label for="consent" class="consentSpan">I hereby consent to being contacted by the team <span class="pointGreen">*</span></label>
+          <div class="errorMessageConsent">
+            <p class="errorMessage" id="requiredConsent"> To submit this form, please consent to be contacted</p>
+          </div>   
+        </div>
+        <button  class="button" type="submit">Submit</button>
+      </form>
+    </div>
+  </main>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Enelis Blanca Cuba Rondón</a>.
+  </div>
+<script src="./js/validations.js"> </script>
+</body>
+</html>
